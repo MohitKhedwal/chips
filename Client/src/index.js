@@ -224,12 +224,12 @@ import Data from "./Components/Pages/Data";
 import Districtgis from "./Components/Pages/Districtgis";
 import Stategis from "./Components/Pages/Stategis";
 import LoginPage from "./Components/Pages/Login/Client/LoginPage";
-import RegisterPage from "./Components/Pages/RegisterPage";
 import Dashboard from "./Components/Pages/Dashboard";
 import { MyProvider } from "./Components/Container/Context";
 import Cgatlas from "./Components/Pages/Cgatlas";
 import UserDashboard from "./Components/Pages/Dashboardcomponents.jsx/UserDashboard";
 import Admindashboard from "./Components/Pages/Dashboardcomponents.jsx/Admindashboard";
+import RegistrationPage from "./Components/Pages/Register/RegistrationPage";
 
 const AppWrapper = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -278,9 +278,9 @@ const AppWrapper = () => {
           path="register"
           element={
             !isAuthenticated ? (
-              <RegisterPage changeAuth={changeAuth} />
+              <RegistrationPage changeAuth={changeAuth} />
             ) : (
-              <Navigate to="/dashboard" />
+              <Navigate to="/setpassword" />
             )
           }
         />
@@ -294,7 +294,7 @@ const AppWrapper = () => {
             )
           }
         />
-        <Route path="cgatlas" element={<Cgatlas />} />
+        <Route path="cgatlas" element={<RegistrationPage />} />
       </Route>
     )
   );

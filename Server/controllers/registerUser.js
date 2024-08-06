@@ -4,7 +4,7 @@ import bcrypt from "bcrypt"
 import token from "../utility/tokenGenerator.js";
 
 const registerUser=async(req,res,next)=>{
-    const { email, password,role } = req.body;
+    const { email, password,role,name,dept } = req.body;
 
     try {
       const user = await pool.query("SELECT * FROM users WHERE user_email = $1", [
@@ -19,8 +19,8 @@ const registerUser=async(req,res,next)=>{
       const bcryptPassword = await bcrypt.hash(password, salt);
   
       let newUser = await pool.query(
-        "INSERT INTO users ( user_email, user_password,user_role) VALUES ($1, $2,$3) RETURNING *",
-        [ email, bcryptPassword,role]
+        "INSERT INTO users ( user_email, user_password,user_role,user_dept) VALUES ($1, $2,$3,$4) RETURNING *",
+        [ email, bcryptPassword,role,dept]
       );
   
       const jwtToken = token(newUser.rows[0].user_id);
