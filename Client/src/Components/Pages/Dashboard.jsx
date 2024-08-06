@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 // import { useMyContext } from '../Container/Context';
 import { useMyContext } from '../Container/Context';
+import Admindashboard from './Dashboardcomponents.jsx/Admindashboard';
 const  Dashboard=()=> {
   
   const {roleValue,setroleValue}=useMyContext()
@@ -30,7 +31,7 @@ else if(roleValue==2){
   return (
     <>
     <div className='h-screen w-full flex    justify-center  items-center'>
-    2
+    <Admindashboard/>
     </div>
    
     </>

@@ -1,9 +1,10 @@
 import React from 'react';
 import { RiBuilding2Fill } from "react-icons/ri";
 import Image from '../../../images/sl1.jpg';
-import './Dashboard.css';
+// import './Dashboard.css';
 
-const Dashboard = () => {
+
+function Admindashboard() {
   return (
     <div className="flex h-screen">
       <nav className="w-1/6 bg-gray-100 text-[#012366] p-4">
@@ -71,6 +72,6 @@ const Dashboard = () => {
     // </div>
     // </div>
   );
-};
+}
 
-export default Dashboard;
+export default Admindashboard

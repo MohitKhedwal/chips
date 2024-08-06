@@ -228,6 +228,8 @@ import RegisterPage from "./Components/Pages/RegisterPage";
 import Dashboard from "./Components/Pages/Dashboard";
 import { MyProvider } from "./Components/Container/Context";
 import Cgatlas from "./Components/Pages/Cgatlas";
+import UserDashboard from "./Components/Pages/Dashboardcomponents.jsx/UserDashboard";
+import Admindashboard from "./Components/Pages/Dashboardcomponents.jsx/Admindashboard";
 
 const AppWrapper = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -259,8 +261,8 @@ const AppWrapper = () => {
       <Route path="/" element={<App />}>
         <Route index element={<Home />} />
         <Route path="about-us" element={<About />} />
-        <Route path="departments" element={<Departments />} />
-        <Route path="data" element={<Data />} />
+        <Route path="departments" element={<UserDashboard/>} />
+        <Route path="data" element={<Admindashboard />} />
         <Route path="stategis" element={<Stategis />} />
         <Route
           path="login"
