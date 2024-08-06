@@ -30,15 +30,15 @@
 }
 
 .front {
-    background-color: #E5E7EB;
+    background-color: #cfe3be;
 }
 
 .back {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #E5E7EB;
-    color: #3333;
+    background-color: #cfe3be;
+    color: #07231f;
     transform: rotateY(180deg);
    
 }
@@ -61,7 +61,7 @@
 
 .text {
     font-size: .75em;
-    color: #555;
+    color: #07231f;
 }
 
 @media (max-width: 768px) {

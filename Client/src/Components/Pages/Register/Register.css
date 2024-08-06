@@ -1,0 +1,98 @@
+.positiondiv{
+   
+    width: 100%;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-image: url("../../images/loginback.jpg"); */
+    /* background-repeat: no-repeat;
+    background-size: cover; */
+    /* background: linear-gradient(45deg, #43cea2, #185a9d); Teal to purple gradient */
+
+}
+.logo img{
+    border-radius: 10%;
+    width: 50%;
+    
+}
+.logo{
+    display: flex;
+    justify-content: center;
+}
+
+.main{
+    /* background-color: bisque; */
+    background: #E0E0E0; /* Teal to purple gradient */
+    padding:2rem;
+    border: black .20rem solid;
+    border-radius: 5%;
+}
+.field{
+display: flex;
+flex-direction: column;
+margin: 2rem;
+/* margin-left: -2rem; */
+}
+h1{
+    text-align: center;
+    font-size: larger;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 1rem;
+
+}
+.btn{
+    background-color: #90EE90;
+    padding:.75rem;
+    border-radius: 1rem;
+    width: 100%;
+}
+.btn:hover{
+    background-color:indianred;
+    color:black
+}
+
+.label{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: left;
+}
+.input{
+    padding: .3rem;
+    border-radius: .5rem;
+    border: 0px solid;
+}
+
+.input:focus{
+    /* border: ; */
+    border: 0px solid;
+}
+@media screen and (max-width:500px) {
+    .input{
+        padding: .1rem;
+        border-radius: .5rem;
+        border: 0px solid;
+        margin: .1rem;
+    }
+    .main{
+        padding: 1rem;
+    }
+    .btn{
+        padding:.25rem;
+    }
+    
+}
+@media screen and (max-width:300px) {
+    .input{
+        padding: 0%;
+        
+     
+        
+    }
+    .main{
+        padding: .2rem;
+    }
+    .btn{
+        padding:.15rem;
+    }
+    
+}

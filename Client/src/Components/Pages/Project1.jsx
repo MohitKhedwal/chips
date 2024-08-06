@@ -10,7 +10,7 @@ function Project1() {
       para:" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae assumenda odit dignissimos enim. Voluptate dolor magnam nesciunt. Ex, ea sapiente? ",
       // img: Forest,
       img: forest,
-      title:"Hi",
+      title:"Forest",
       link:"https://www.chips.gov.in/en"
     },
     {
@@ -18,7 +18,7 @@ function Project1() {
       para:"lorem30",
       // img: Forest,
       img: forest,
-      title:"hello",
+      title:"Forest",
       link:"https://www.chips.gov.in/en"
       
   
@@ -28,7 +28,7 @@ function Project1() {
       para:"lorem20",
       // img: Forest,
       img: forest,
-      title:"Hi",
+      title:"Forest",
       link:"https://www.chips.gov.in/en"
     },
     {
@@ -36,7 +36,7 @@ function Project1() {
       para:"lorem30",
       // img: Forest,
       img: forest,
-      title:"hello",
+      title:"Forest",
       link:"https://www.chips.gov.in/en"
       
   

@@ -9,10 +9,14 @@ function Cgatlas() {
       <iframe 
          src="https://gis.cgstate.gov.in/atlas33/" 
          frameborder="0" 
+         allowtransparency="true"
          style={{ 
            width: "100%", 
            height: "100%", 
-           backgroundImage: "url('cgatlasbg')"
+           backgroundImage: "url('cgatlasbg')",
+           backgroundColor: 'transparent',
+           backgroundSize: "cover",
+           backgroundRepeat: "no-repeat"
         }}>
       </iframe>
     </div>
@@ -20,5 +24,4 @@ function Cgatlas() {
 }
 
 export default Cgatlas
-
 
