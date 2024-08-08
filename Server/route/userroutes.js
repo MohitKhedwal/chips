@@ -9,6 +9,7 @@ import roleAuth from "../middleware/role.js";
 import { deleteUser, readUser, updateUser,getUser } from "../controllers/CRUD.js";
 import forgotpassword from "../controllers/forgotpassword.js";
 import resetpassword from "../controllers/resetpassword.js";
+import { roleFetch } from "../controllers/usercontroller.js";
 
 const router =Router();
 
@@ -36,4 +37,6 @@ router.route("/delete/:user_email").delete(deleteUser)
 router.route("/forgot-password").post(forgotpassword)
 
 router.route("/reset-password/:user_id/:token").post(resetpassword)
+
+router.route("/role-fetch").get(roleFetch)
 export default router

@@ -74,7 +74,7 @@ function Resetpassword() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(body),
             });
-            alert("password Updated successfully")
+            alert("Password UPDATED Successfully")
            
         } catch (error) {
             console.error(error);
@@ -127,7 +127,7 @@ function Resetpassword() {
                 </button>
             </div>
             <div>
-        <Link to={"/login"} className="text-sm text-blue-700 hover:text-[#c84548]"  > Go Back to LOG IN</Link>
+        <Link to={"/login"} className="text-sm text-blue-700 hover:text-[#c84548]"  > Go Back to LOGIN</Link>
         </div>
         </form>
         
