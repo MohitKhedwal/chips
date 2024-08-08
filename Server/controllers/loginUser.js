@@ -7,7 +7,7 @@ const loginUser=async(req,res,next)=>{
     const {email,password}=req.body
     try {
         const user =await pool.query("SELECT * FROM users WHERE user_email=$1",[email])
-        if(user.rows.length===0){
+        if(user.rows.length===0){ 
         return res.status(401).json("Invalid data")}
     
         const checkPassword=await bcrypt.compare(password,user.rows[0].user_password)

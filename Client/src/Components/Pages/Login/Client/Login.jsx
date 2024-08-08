@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useMyContext } from '../../../Container/Context';
+import { Link } from 'react-router-dom';
 
 const Login = ({ changeAuth }) => {
   const { roleValue, setroleValue } = useMyContext();
@@ -79,7 +80,8 @@ const Login = ({ changeAuth }) => {
         />
       </div>
       <div className="w-full px-8 text-left">
-        <a href="#" className="text-sm text-blue-700 hover:text-[#c84548]">Forgot your password?</a>
+        {/* <a href="#" className="text-sm text-blue-700 hover:text-[#c84548]">Forgot your password?</a> */}
+        <Link to={"/forgot-password"} className="text-sm text-blue-700 hover:text-[#c84548]"  > Forgot Password</Link>
       </div>
       <div className="w-full px-8">
         <button
