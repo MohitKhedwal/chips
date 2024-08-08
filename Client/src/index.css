@@ -28,3 +28,22 @@
     background-position: center; 
   }
 
+  .Modal {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    max-width: 60%;
+    margin: auto;
+    text-align: justify;
+  }
+  
+  .Overlay {
+    background: rgba(0, 0, 0, 0);
+    position: fixed;
+    top: 270px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+

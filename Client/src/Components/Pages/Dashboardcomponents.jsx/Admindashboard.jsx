@@ -7,7 +7,7 @@ import Image from '../../../images/sl1.jpg';
 function Admindashboard() {
   return (
     <div className="flex h-screen">
-      <nav className="w-1/6 bg-gray-100 text-[#012366] p-4">
+      <nav className="w-1/6 bg-gray-100 text-[#012366] p-4 border-r border-r-[#012366]">
         <ul className="space-y-4">
           <li className="font-bold text-lg">Welcome to CH𝓲PS GIS!</li>
           <li className="hover:bg-[#012366] font-semibold hover:text-white p-2 rounded-md">Home</li>
