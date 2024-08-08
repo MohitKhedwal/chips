@@ -16,6 +16,7 @@ try {
             'UPDATE users SET user_password = $1 WHERE user_id = $2',
             [newPassword,user_id]
           );
+          alert("password updated");
           return res.status(500).json("Password update")
 } catch (error) {
     return res.status(400).json("error with token")

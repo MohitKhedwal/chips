@@ -52,15 +52,21 @@
 // export default Forgotpassword
 
 import React, { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 function Resetpassword() {
     const [password, setpassword] = useState();
+    const [confirmPassword,setConfirmPassword]=useState();
     const navigate = useNavigate();
     const {user_id,token}=useParams()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (password !== confirmPassword) {
+            // setError('Passwords do not match');
+            alert("Passwords does not match")
+            return;
+          }
         try {
             const body = { password  };
             const res = await fetch(`http://localhost:5000/api/reset-password/${user_id}/${token}`, {
@@ -68,6 +74,7 @@ function Resetpassword() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(body),
             });
+            alert("password Updated successfully")
            
         } catch (error) {
             console.error(error);
@@ -75,6 +82,7 @@ function Resetpassword() {
     }
 
     return (
+        <>
         <form className="flex flex-col items-center space-y-4 font-sans h-screen" onSubmit={handleSubmit}>
             <div className="w-1/4 mx-auto px-8 mt-5">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
@@ -91,6 +99,24 @@ function Resetpassword() {
                     className="w-full px-3 py-2 border rounded-lg text-gray-700 focus:border-[#67a160] focus:outline-none"
                 />
             </div>
+            <div className="w-1/4 mx-auto px-8">
+        <label
+          className="block text-gray-700 text-sm font-bold mb-2"
+          htmlFor="confirmPassword"
+        >
+          Confirm Password:
+        </label>
+        <input
+          id="confirmPassword"
+          name="confirmPassword"
+          type="password"
+          placeholder="Confirm your password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          required
+          className="w-full px-3 py-2 border rounded-lg text-gray-700 focus:border-[#012366] focus:outline-none"
+        />
+      </div>
             
             <div className="w-1/4 mx-auto mb-10 px-8">
                 <button
@@ -100,7 +126,12 @@ function Resetpassword() {
                     Update Password
                 </button>
             </div>
+            <div>
+        <Link to={"/login"} className="text-sm text-blue-700 hover:text-[#c84548]"  > Go Back to LOG IN</Link>
+        </div>
         </form>
+        
+        </>
     );
 }
 
