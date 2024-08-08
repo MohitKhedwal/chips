@@ -230,6 +230,9 @@ import Cgatlas from "./Components/Pages/Cgatlas";
 import UserDashboard from "./Components/Pages/Dashboardcomponents.jsx/UserDashboard";
 import Admindashboard from "./Components/Pages/Dashboardcomponents.jsx/Admindashboard";
 import RegistrationPage from "./Components/Pages/Register/RegistrationPage";
+import Forgotpassword from "./Components/Pages/Login/Client/Forgotpassword";
+import Resetpassword from "./Components/Pages/Login/Client/Resetpassword";
+
 
 const AppWrapper = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -294,8 +297,10 @@ const AppWrapper = () => {
             )
           }
         />
+        <Route path="forgot-password" element={<Forgotpassword/>} />
         <Route path="cgatlas" element={<RegistrationPage />} />
-      </Route>
+        <Route path="/reset-password/:user_id/:token"  element={<Resetpassword/>}/>
+    </Route>
     )
   );
 

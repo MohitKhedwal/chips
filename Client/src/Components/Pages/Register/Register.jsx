@@ -38,10 +38,10 @@ const Register = () => {
         alert("Register Successfully");
       } else {
         // changeAuth(false);
-        console.log(parseRes);
+        alert(parseRes);
       }
     } catch (error) {
-      console.error(error.message);
+      alert(error.message);
     }
   };
 
