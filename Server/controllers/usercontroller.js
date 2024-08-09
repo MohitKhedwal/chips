@@ -13,6 +13,24 @@ const roleFetch=async (req,res)=>{
     }
 
 }
+
+const deptFetch= async (req,res)=>{
+
+    try{
+        const result =await pool.query("SELECT dept_name,dept_id FROM departments")
+        const departments=result.rows.map(dept=>[dept.dept_id,dept.dept_name]);
+        console.log(departments);
+        return res.status(500).json(departments)
+    }catch(e){
+        console.log(e)
+        return res.status(400).json(e)
+
+    }
+}
+
+
+
 export {
-    roleFetch
+    roleFetch,
+    deptFetch
 }
