@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useMyContext } from "../../Container/Context";
+import { useSelector } from "react-redux";
 
 // {changeAuth}
 const Register = () => {
   const [roleData, setRoleData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [deptData, setDeptData] = useState([]);
-  const {roleValue,setroleValue}=useMyContext();
+  const [roleValue,setroleValue]=useState()
+  const id=useSelector(state=>state.logstatus.user)
+
+
 
   useEffect(() => {
     const fetchrole = async () => {
@@ -39,6 +43,29 @@ const Register = () => {
     };
     fetchrole();
     fetchdept();
+    const load = async () => {
+      try {
+        const body = { id };
+        const result = await fetch("http://localhost:5000/api/get-role", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+
+        const res= await result.json()
+        console.log(res);
+        setroleValue(res)
+      } catch (error) {
+        console.error("Error fetching role data:", error);
+      }
+    };
+    load()
+
+
+
+
+
+
   }, []);
 
  

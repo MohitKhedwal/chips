@@ -305,7 +305,7 @@ const AppWrapper = () => {
         <Route path="cgatlas" element={<Cgatlas />} />
         <Route path="/reset-password/:user_id/:token"  element={<Resetpassword/>}/>
         <Route path="/register" element={<RegistrationPage/>}/>
-        <Route path="/districtgis" element={<Districtgis/>} />
+        <Route path="/districtgis" element={<RegistrationPage/>} />
     </Route>
     )
   );
