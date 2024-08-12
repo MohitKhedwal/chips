@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useMyContext } from "../../Container/Context";
 
 // {changeAuth}
 const Register = () => {
   const [roleData, setRoleData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [deptData, setDeptData] = useState([]);
+  const {roleValue,setroleValue}=useMyContext();
 
   useEffect(() => {
     const fetchrole = async () => {
@@ -179,11 +181,17 @@ const Register = () => {
           <option value="" disabled>
             Select Role ID
           </option>
-          {roleData.map((r) => (
-            <option key={r[0]} value={r[0]}>
+          {roleData.map((r) => {
+            if(r[0] > roleValue){
+              return(
+                <option key={r[0]} value={r[0]}>
               {r[1]}
             </option>
-          ))}
+              )
+            }
+          }
+            
+          )}
         </select>
       </div>
       <div className="w-full px-8">

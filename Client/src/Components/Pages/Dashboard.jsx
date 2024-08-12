@@ -38,11 +38,13 @@ else if(roleValue==2){
     
     )
 }
-else if(roleValue==3){
+else if(roleValue>=3 || roleValue<=6){
   return (
     <>
     <div className='h-screen w-full flex    justify-center  items-center'>
-    3
+    {
+      roleValue
+    }
     </div>
    
     </>

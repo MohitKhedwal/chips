@@ -19,8 +19,8 @@ const registerUser=async(req,res,next)=>{
       const bcryptPassword = await bcrypt.hash(password, salt);
   
       let newUser = await pool.query(
-        "INSERT INTO users ( user_email, user_password,user_role,user_dept) VALUES ($1, $2,$3,$4) RETURNING *",
-        [ email, bcryptPassword,role,dept]
+        "INSERT INTO users ( user_email, user_password,user_role,user_dept,user_name) VALUES ($1, $2,$3,$4,$5) RETURNING *",
+        [ email, bcryptPassword,role,dept,name]
       );
   
       const jwtToken = token(newUser.rows[0].user_id);
