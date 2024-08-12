@@ -1,10 +1,14 @@
 import React from 'react';
 import { RiBuilding2Fill } from "react-icons/ri";
 import Image from '../../../images/sl1.jpg';
+import { useSelector } from 'react-redux';
 // import './Dashboard.css';
 
 
 function Admindashboard() {
+
+  const id=useSelector(state=>state.logstatus.user);
+  console.log(id)
   return (
     <div className="flex h-screen">
       <nav className="w-1/6 bg-gray-100 text-[#012366] p-4 border-r border-r-[#012366]">

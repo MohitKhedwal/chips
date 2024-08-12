@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 // import { useMyContext } from '../Container/Context';
 import { useMyContext } from '../Container/Context';
 import Admindashboard from './Dashboardcomponents.jsx/Admindashboard';
+import UserDashboard from './Dashboardcomponents.jsx/UserDashboard';
 const  Dashboard=()=> {
   
   const {roleValue,setroleValue}=useMyContext()
@@ -20,31 +21,19 @@ if(roleValue==1){
   return (
     <>
     <div className='h-screen w-full flex    justify-center  items-center'>
-    1
+    <Admindashboard/>
     </div>
    
     </>
     
   )
 }
-else if(roleValue==2){
+
+else if(roleValue>=2 || roleValue<=6){
   return (
     <>
     <div className='h-screen w-full flex    justify-center  items-center'>
-    <Admindashboard/>
-    </div>
-   
-    </>
-    
-    )
-}
-else if(roleValue>=3 || roleValue<=6){
-  return (
-    <>
-    <div className='h-screen w-full flex    justify-center  items-center'>
-    {
-      roleValue
-    }
+   <UserDashboard/>
     </div>
    
     </>

@@ -3,13 +3,17 @@ import pool from "../db/db.js"
 export const readUser=async(req,res,next)=>{
 // used to 
     try {
-     const users=  await pool.query("SELECT * FROM users ")
-      if(users.length==0){
+     const result=  await pool.query("SELECT * FROM users ")
+
+      if(result.length==0){
         return res.status(200).json({
             "error":"no user found"
         })
       }
-      return res.status(200).json(users)
+      const users=result.rows.map(u=>[u.user_id,u.user_email,u.user_password,u.user_role,u.user_dept,u.user_name]);
+      console.log(users);
+      return res.status(500).json(users)
+     
  
     } catch (error) {
     console.error(error)

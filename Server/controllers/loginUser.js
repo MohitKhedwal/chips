@@ -16,9 +16,10 @@ const loginUser=async(req,res,next)=>{
         }
         const resultRole =await pool.query("SELECT user_role FROM users WHERE user_email=$1 ",[email])
         const jwttoken=token(user.rows[0].user_id)
-        // console.log(role)
+        // console.log(user.rows[0].user_id)
+        const userID=user.rows[0].user_id
         const roleLevel=user.rows[0].user_role
-        return res.json({jwttoken,msg:"logged in",roleLevel})
+        return res.json({jwttoken,msg:"logged in",roleLevel,userID})
 
 
     } catch (error) {

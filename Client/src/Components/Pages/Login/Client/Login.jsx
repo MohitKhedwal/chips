@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { useMyContext } from '../../../Container/Context';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { login } from '../../../store/isloggedin';
+// import {useDisp}
 
 const Login = ({ changeAuth }) => {
+  const dispatch=useDispatch();
+  const navigate=useNavigate()
   const { roleValue, setroleValue } = useMyContext();
   const [formValues, setFormValues] = useState({
     email: "",
@@ -34,7 +39,15 @@ const Login = ({ changeAuth }) => {
 
       const parseRes = await res.json();
       const role = parseRes.roleLevel;
+      const id=parseRes.userID
       setroleValue(role);
+      if(id){
+        // dispatch({type:"login",payload:id});
+        (dispatch(login({ user: id })))
+        console.log(id)
+        navigate("/dashboard")
+        
+      }
 
       if (parseRes.jwttoken) {
         localStorage.setItem("token", parseRes.jwttoken);

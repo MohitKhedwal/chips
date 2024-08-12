@@ -232,6 +232,8 @@ import Admindashboard from "./Components/Pages/Dashboardcomponents.jsx/Admindash
 import RegistrationPage from "./Components/Pages/Register/RegistrationPage";
 import Forgotpassword from "./Components/Pages/Login/Client/Forgotpassword";
 import Resetpassword from "./Components/Pages/Login/Client/Resetpassword";
+import { Provider } from "react-redux";
+import store from "./Components/store/store";
 
 
 const AppWrapper = () => {
@@ -264,7 +266,7 @@ const AppWrapper = () => {
       <Route path="/" element={<App />}>
         <Route index element={<Home />} />
         <Route path="about-us" element={<About />} />
-        <Route path="departments" element={<UserDashboard/>} />
+        <Route path="departments" element={<Departments/>} />
         <Route path="data" element={<Admindashboard />} />
         <Route path="stategis" element={<Stategis />} />
         <Route
@@ -297,9 +299,13 @@ const AppWrapper = () => {
             )
           }
         />
-        <Route path="forgot-password" element={<Forgotpassword/>} />
-        <Route path="cgatlas" element={<RegistrationPage />} />
+        <Route path="forgot-password" element={<Forgotpassword/>} >
+        
+        </Route>
+        <Route path="cgatlas" element={<Cgatlas />} />
         <Route path="/reset-password/:user_id/:token"  element={<Resetpassword/>}/>
+        <Route path="/register" element={<RegistrationPage/>}/>
+        <Route path="/districtgis" element={<Districtgis/>} />
     </Route>
     )
   );
@@ -309,9 +315,11 @@ const AppWrapper = () => {
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <MyProvider>
+ <Provider store={store}>
+   <MyProvider >
     <AppWrapper />
   </MyProvider>
+ </Provider>
 );
 
 reportWebVitals();
