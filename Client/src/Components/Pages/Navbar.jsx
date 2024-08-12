@@ -34,12 +34,7 @@ function Navbar() {
       active:!authstatus,
       icon: <FaAtlas className="mr-2 text-lg" />
     },
-    {
-      title:"Login",
-      slug:"/login",
-      active:!authstatus,
-      icon:<RiLoginBoxFill className="mr-2 text-lg" />
-    },
+   
     {
       title:"Dashboard",
       slug:"/dashboard",
@@ -65,7 +60,12 @@ function Navbar() {
       slug:"/stategis",
       active:authstatus,
       icon: <IoMap  className="mr-2 text-lg" />
-    }
+    }, {
+      title:"Login",
+      slug:"/login",
+      active:!authstatus,
+      icon:<RiLoginBoxFill className="mr-2 text-lg" />
+    },
   ]
   
 

@@ -267,7 +267,7 @@ const AppWrapper = () => {
         <Route index element={<Home />} />
         <Route path="about-us" element={<About />} />
         <Route path="departments" element={<Departments/>} />
-        <Route path="data" element={<Admindashboard />} />
+        <Route path="data" element={<Data />} />
         <Route path="stategis" element={<Stategis />} />
         <Route
           path="login"

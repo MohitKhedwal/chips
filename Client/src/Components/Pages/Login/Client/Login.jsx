@@ -8,7 +8,7 @@ import { login } from '../../../store/isloggedin';
 const Login = ({ changeAuth }) => {
   const dispatch=useDispatch();
   const navigate=useNavigate()
-  const { roleValue, setroleValue } = useMyContext();
+  // const { roleValue, setroleValue } = useMyContext();
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
@@ -40,7 +40,7 @@ const Login = ({ changeAuth }) => {
       const parseRes = await res.json();
       const role = parseRes.roleLevel;
       const id=parseRes.userID
-      setroleValue(role);
+      // setroleValue(role);
       if(id){
         // dispatch({type:"login",payload:id});
         (dispatch(login({ user: id })))

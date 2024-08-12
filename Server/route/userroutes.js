@@ -4,12 +4,11 @@ import registerUser from "../controllers/registerUser.js";
 import loginUser from "../controllers/loginUser.js";
 import auth from "../middleware/authorize.js";
 import verify from "../middleware/verify.js";
-import dashboard from "../controllers/dashboard.js";
+// import dashboard from "../controllers/dashboard.js";
 import roleAuth from "../middleware/role.js";
 import { deleteUser, readUser, updateUser,getUser } from "../controllers/CRUD.js";
-import forgotpassword from "../controllers/forgotpassword.js";
-import resetpassword from "../controllers/resetpassword.js";
-import { deptFetch, roleFetch } from "../controllers/usercontroller.js";
+import {forgotpassword,resetpassword,roleFetch,deptFetch, getrole, getname, getdept, getemail} from "../controllers/fetch.js"
+
 
 const router =Router();
 
@@ -21,7 +20,7 @@ router.route("/login").post(valid,loginUser)
 
 router.route("/role").get(valid,roleAuth)
 
-router.route("/dashboard").post(auth,dashboard)
+// router.route("/dashboard").post(auth,dashboard)
 
 
 // read
@@ -41,4 +40,10 @@ router.route("/reset-password/:user_id/:token").post(resetpassword)
 router.route("/role-fetch").get(roleFetch)
 
 router.route("/dept-fetch").get(deptFetch)
+
+// user details
+router.route("/get-role").post(getrole)
+router.route("/get-name").post(getname)
+router.route("/get-dept").post(getdept)
+router.route("/get-email").post(getemail)
 export default router

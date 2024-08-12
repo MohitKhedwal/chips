@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { RiBuilding2Fill } from "react-icons/ri";
 import Image from '../../../images/sl1.jpg';
 import { useSelector } from 'react-redux';
@@ -7,13 +7,36 @@ import { useSelector } from 'react-redux';
 
 function Admindashboard() {
 
-  const id=useSelector(state=>state.logstatus.user);
-  console.log(id)
+  const [nameValue,setnameValue]=useState()
+  const id=useSelector(state=>state.logstatus.user)
+  
+  
+    
+  useEffect(()=>{
+    const load = async () => {
+      try {
+        const body = { id };
+        const result = await fetch("http://localhost:5000/api/get-name", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+
+        const res= await result.json()
+        console.log(res);
+        setnameValue(res)
+      } catch (error) {
+        console.error("Error fetching role data:", error);
+      }
+    };
+    load()
+
+  } ,[])
   return (
     <div className="flex h-screen">
       <nav className="w-1/6 bg-gray-100 text-[#012366] p-4 border-r border-r-[#012366]">
         <ul className="space-y-4">
-          <li className="font-bold text-lg">Welcome to CH𝓲PS GIS!</li>
+          <li className="font-bold text-lg">Welcome {nameValue}</li>
           <li className="hover:bg-[#012366] font-semibold hover:text-white p-2 rounded-md">Home</li>
           <li className="hover:bg-[#012366] font-semibold hover:text-white p-2 rounded-md">About Us</li>
           <li className="hover:bg-[#012366] font-semibold hover:text-white p-2 rounded-md">Departments</li>

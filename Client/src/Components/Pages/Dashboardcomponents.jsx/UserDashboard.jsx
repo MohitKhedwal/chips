@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactModal from 'react-modal';
 // import { IoArrowRedoCircleSharp } from "react-icons/io5";
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
+import { useSelector } from 'react-redux';
 
 const users = [
   { id: 1, name:'user1', email: 'user1@example.com', isActive: true },
@@ -11,6 +12,30 @@ const users = [
 ];
 
 const UserDashboard = () => {
+  const [nameValue,setnameValue]=useState()
+  const id=useSelector(state=>state.logstatus.user)
+    
+  useEffect(()=>{
+    const load = async () => {
+      try {
+        const body = { id };
+        const result = await fetch("http://localhost:5000/api/get-name", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+
+        const res= await result.json()
+        console.log(res);
+        setnameValue(res)
+      } catch (error) {
+        console.error("Error fetching role data:", error);
+      }
+    };
+    load()
+
+  } ,[])
+  
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [actionType, setActionType] = useState(''); // 'edit' or 'delete'
@@ -42,7 +67,7 @@ const UserDashboard = () => {
     <div className="flex h-screen">
       <nav className="w-1/6 bg-gray-100 text-[#012366] p-4 border-r border-r-[#012366]">
         <ul className="space-y-4">
-          <li className="font-bold text-lg">User Dashboard</li>
+          <li className="font-bold text-lg">Welcome {nameValue}</li>
           <li className="hover:bg-[#012366] font-semibold hover:text-white p-2 rounded-md">Home</li>
           <li className="hover:bg-[#012366] font-semibold hover:text-white p-2 rounded-md">About Us</li>
           <li className="hover:bg-[#012366] font-semibold hover:text-white p-2 rounded-md">Departments</li>
