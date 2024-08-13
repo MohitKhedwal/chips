@@ -10,7 +10,7 @@ import { TbDeviceLandlinePhone } from "react-icons/tb";
 function Footer() {
   return (
     <section >
-        <div className='w-full bg-black {styles.nunitoFont} overflow-x-hidden'>
+        <div className='w-full bg-black {styles.nunitoFont} overflow-x-hidden relative'>
             <div className='w-[80%] mx-auto flex justify-between m-4 '>
                 <div className=' m-2  text-slate-200'>
                     <h1 className='text-grey-400 underline lg:text-2xl mb-2 text-xl '>Contact Us</h1>

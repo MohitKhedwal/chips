@@ -191,7 +191,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const UserDashboard = () => {
   const [users, setUsers] = useState([]);
-  const [nameValue, setNameValue] = useState(''); // Replace with user name fetching logic
+  const [nameValue, setnameValue] = useState(''); // Replace with user name fetching logic
 
   const id = useSelector(state => state.logstatus.user);
   const navigate = useNavigate();
@@ -201,6 +201,24 @@ const UserDashboard = () => {
   const [actionType, setActionType] = useState(''); // 'edit' or 'delete'
 
   const fetchUsers = async () => {
+    const load = async () => {
+      try {
+        const body = { id };
+        const result = await fetch("http://localhost:5000/api/get-name", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+
+        const res= await result.json()
+        console.log(res);
+        setnameValue(res)
+      } catch (error) {
+        console.error("Error fetching role data:", error);
+      }
+    };
+    load()
+
     try {
       const response = await fetch("http://localhost:5000/api/read"); // Replace with your user fetching API endpoint
       const data = await response.json();
@@ -257,7 +275,7 @@ const UserDashboard = () => {
       if (actionType === 'delete') {
           try {
               // Replace selectedUser.user_id with the correct identifier used in your API.
-              const response = await fetch("http://localhost:5000/api/delete/${selectedUser.user_id", {
+              const response = await fetch(`http://localhost:5000/api/delete/${selectedUser.user_id}`, {
                   method: 'DELETE',
               });
   
@@ -289,7 +307,7 @@ const UserDashboard = () => {
   return (
     <>
     <div className="flex h-full">
-      <nav className="w-1/6 bg-gray-100 text-[#012366] p-4 border-r border-r-[#012366]">
+      <nav className="w-1/6 bg-gray-100 text-[#012366] p-4 border-r border-r-[#012366] overflow-auto">
         <ul className="space-y-4">
           <li className="font-bold text-lg">Welcome {nameValue} </li>
           {/* <li className="hover:bg-[#012366] font-semibold hover:text-white p-2 rounded-md">Register</li> */}
@@ -342,8 +360,8 @@ const UserDashboard = () => {
 
         </div>
 
-        <div className="container mx-auto p-6">
-          <table className="min-w-full bg-gray-100">
+        <div className="container mx-auto p-6 w-full h-full">
+          <table className="w-full bg-gray-100 h-full">
             <thead className='m-4'>
               <tr>
                 <th className="p-2 text-left underline">User-ID</th>

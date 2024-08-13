@@ -31,7 +31,7 @@ router.route("/getuser").get(getUser)
 router.route("/update/:user_id").put(updateUser)
 
 // delete
-router.route("/delete/:user_email").delete(deleteUser)
+router.route("/delete/:user_id").delete(deleteUser)
 
 router.route("/forgot-password").post(forgotpassword)
 

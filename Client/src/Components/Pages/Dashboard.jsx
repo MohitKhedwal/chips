@@ -41,7 +41,7 @@ console.log(roleValue)
 if(roleValue==1){
   return (
     <>
-    <div className='h-screen w-full flex    justify-center  items-center'>
+    <div className='h-full w-full flex'>
     <Admindashboard/>
     </div>
    
@@ -53,7 +53,7 @@ if(roleValue==1){
 else if(roleValue>=2 || roleValue<=6){
   return (
     <>
-    <div className='h-screen w-full flex    justify-center  items-center'>
+    <div className='h-full w-full'>
    <UserDashboard/>
     </div>
    
