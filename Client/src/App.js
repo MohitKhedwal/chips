@@ -10,16 +10,23 @@ function App() {
   return (
    <>
    {/* <Info/> */}
-<Navbar/>
-<main className='h-full'>
+   <Navbar/>
+<main className=' flex-grow'>
 <Outlet/>
 </main>
-<Footer/>
+<Footer className="sticky bottom-0"/>
 </>
+
   
   );
 }
 
 export default App;
 
-/* <Home/> */
+
+{/* <Navbar/>
+<main className='h-full flex-grow  '>
+<Outlet/>
+</main>
+<Footer className="sticky bottom-0"/>
+</> */}
