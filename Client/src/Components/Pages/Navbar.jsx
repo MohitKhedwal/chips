@@ -11,6 +11,7 @@ import logo from "../../images/logo.ico"
 import { useSelector } from 'react-redux';
 import { MdDashboard } from "react-icons/md";
 import { RiLoginBoxFill } from "react-icons/ri";
+import { GiArchiveRegister } from "react-icons/gi";
 
 function Navbar() {
   const authstatus=useSelector(state=>state.logstatus.status)
@@ -64,8 +65,15 @@ function Navbar() {
       title:"Login",
       slug:"/login",
       active:!authstatus,
-      icon:<RiLoginBoxFill className="mr-2 text-lg" />
+      icon:<RiLoginBoxFill   className="mr-2 text-lg" />
     },
+    {
+      title:"Register",
+      slug:"/register",
+      active:authstatus,
+      icon:<GiArchiveRegister  className="mr-2 text-lg"/>
+
+    }
   ]
   
 

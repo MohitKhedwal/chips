@@ -238,6 +238,7 @@ import store from "./Components/store/store";
 
 const AppWrapper = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  // const 
 
   const checkAuthenticated = async () => {
     try {
@@ -282,14 +283,10 @@ const AppWrapper = () => {
         <Route
           path="register"
           element={
-            !isAuthenticated ? (
-              <RegistrationPage changeAuth={changeAuth} />
-            ) : (
-              <Navigate to="/setpassword" />
-            )
+           <RegistrationPage/>
           }
         />
-        <Route
+          <Route
           path="dashboard"
           element={
             isAuthenticated ? (
@@ -299,13 +296,12 @@ const AppWrapper = () => {
             )
           }
         />
-        <Route path="forgot-password" element={<Forgotpassword/>} >
-        
-        </Route>
+         <Route path="forgot-password" element={<Forgotpassword/>} />
+    
         <Route path="cgatlas" element={<Cgatlas />} />
-        <Route path="/reset-password/:user_id/:token"  element={<Resetpassword/>}/>
-        <Route path="/register" element={<RegistrationPage/>}/>
-        <Route path="/districtgis" element={<RegistrationPage/>} />
+        <Route path="reset-password/:user_id/:token"  element={<Resetpassword/>}/>
+        {/* <Route path="register" element={<RegistrationPage/>}/> */}
+        <Route path="districtgis" element={<Districtgis/>} />
     </Route>
     )
   );
